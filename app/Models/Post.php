@@ -10,9 +10,15 @@ class Post extends Model
    // Table Name
     protected $table = 'posts';
 
-    // Table Name
+    // Primary Key
     public $primaryKey = 'id';
 
-    // Table Name
+    // Timestamps
     public $timestamps = true;
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
 }
