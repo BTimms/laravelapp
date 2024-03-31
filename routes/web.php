@@ -22,3 +22,7 @@ Route::get('/', [\App\Http\Controllers\PagesController::class, 'index']);
 
 Route::resource('posts', PostsController::class);
 
+
+Auth::routes();
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
