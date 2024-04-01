@@ -7,8 +7,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <a class="navbar-brand" style=" color: #FFFFFF" href="/">SportPost</a>
+            <a class="logo" href="{{ url('/') }}">
+                <a class="logo" style=" color: #FFFFFF">SportPost</a>
             </a>
         </div>
 
@@ -18,13 +18,11 @@
                 &nbsp;
             </ul>
 
-            <ul class="nav navbar-nav">
-                <li><a style=" color: #FFFFFF" href="/posts">Blog</a></li>
-            </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
+                @auth
                 <li><a style="color: #FFFFFF" href="/posts/create">Create Post</a></li>
+                @endauth
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a style=" color: #FFFFFF" href="{{ route('login') }}">Login</a></li>
