@@ -8,7 +8,7 @@
 
             <!-- Branding Image -->
             <a class="logo" href="{{ url('/') }}">
-                <a class="logo" style=" color: #FFFFFF">SportPost</a>
+                <a class="navbar-brand" style=" color: #FFFFFF" href="/">SportPost</a>
             </a>
         </div>
 
