@@ -22,7 +22,13 @@ Route::get('/', [\App\Http\Controllers\PagesController::class, 'index']);
 
 Route::resource('posts', PostsController::class);
 
+// Redirect /home to /posts or another appropriate route
+Route::get('/home', function() {
+    return redirect('/posts');
+});
 
+// Authentication routes
 Auth::routes();
 
+// Dashboard route, handled by DashboardController's index method
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);

@@ -43,6 +43,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // Sets the posts
     public function posts(){
         return $this->hasMany('App\Models\Post');
     }

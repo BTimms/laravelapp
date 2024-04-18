@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <a href="{{ url('posts') }}" class="btn btn-primary"><-- Back to Posts</a>
     <h1>Create Post</h1>
     {!! Form::open(['url' => 'posts', 'method' => 'POST','enctype'=>'multipart/form-data']) !!}
     <div class="form-group">

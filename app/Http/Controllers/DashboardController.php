@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-//use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -11,7 +10,7 @@ class DashboardController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * This middleware ensures that only authenticated users can access the methods in this controller.
      */
     public function __construct()
     {
@@ -19,7 +18,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard with posts ordered by creation date.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -27,6 +26,9 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('dashboard')->with('posts',$user->posts);
+        // Fetch posts with the latest post first
+        $posts = $user->posts()->orderBy('created_at', 'desc')->get(); // Ensuring posts are ordered by date
+
+        return view('dashboard')->with('posts', $posts);
     }
 }
